@@ -1,4 +1,6 @@
+using BookApp.API.Interfaces;
 using BookApp.API.SeedWork;
+using BookApp.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -27,6 +29,7 @@ namespace BookApp.API
                     options.UseSqlServer(Configuration["ConnectionStrings:BookAppApi"], b => b.MigrationsAssembly("BookApp.API"));
                 });
             services.AddCors();
+            services.AddScoped<IBookService, BookService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

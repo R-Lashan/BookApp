@@ -22,7 +22,7 @@ namespace BookApp.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public Book GetAll([FromRoute] int id)
+        public Book Get([FromRoute] int id)
         {
             return bookService.GetBookById(id);
         }

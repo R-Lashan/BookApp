@@ -10,6 +10,6 @@ namespace BookApp.API.Models
         public string ISBN { get; set; }
         public double Price { get; set; }
 
-        public ICollection<BookUser> BookUsers { get; set; }
+        public ICollection<BookInvoice> BookInvoice { get; set; }
     }
 }

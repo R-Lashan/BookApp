@@ -32,5 +32,11 @@ namespace BookApp.API.Controllers
         {
             return userService.AddUser(user);
         }
+
+        [HttpGet("{id}/books")]
+        public List<Book> GetBooksByUserId([FromRoute] int id)
+        {
+            return userService.GetBooksByUserId(id);
+        }
     }
 }

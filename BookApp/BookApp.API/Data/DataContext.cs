@@ -10,7 +10,6 @@ namespace BookApp.API
         public DbSet<Book> Books { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<BookInvoice> BookInvoice { get; set; }
-        public DbSet<Admin> Admins { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
     }
 }

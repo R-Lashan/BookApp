@@ -1,1 +1,75 @@
+.topnav {
+    background-color: rgb(10, 63, 133);
+    overflow: hidden;
+    height: 100%;
+  }
+  .navlinks{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+  }
+  .navlinks table {
+      width: 400px;
+      margin: 0 auto;
+  }
+    .navlinks table tr td{
+        margin: 0 auto;
+    }
+    .navlinks table tr td .navlink{
+        width: 200px;
+    }
+   .navlink {
+    float: left;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    text-decoration: none;
+    list-style: none;
+    text-align: center;
+    outline: none;
+    border: none;
+    border-radius: 20px 20px 0 0;
+    font-weight: bold;
+  }
+  .topnav li:hover {
+    background-color: rgb(25, 26, 27);
+    color: #ddd;
+  }
+  .topnav li.active {
+    color: white;
+  }
+  .topnav .logo{
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      list-style: none;
+  }
+  .navlinks .is-active{
+    background-color: white;
+    color: #111;
+  }
+  .home-page{
+    width: 100%;
+    background-color: white;
+    padding: 40px 100px;
+}
 
+.nav-topbar{
+    width: 100%;
+    padding: 10px 100px;
+    height: 30px;
+}
+
+.user-sign{
+    background: white;
+    padding: 4px 8px;
+    border: none;
+    border-radius: 10px;
+    position: absolute;
+    left: 90%;
+}
+
+
+  

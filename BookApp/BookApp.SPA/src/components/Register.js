@@ -1,31 +1,52 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Register.css';
 import API from '../API';
 import { useHistory } from 'react-router';
 
 const Register = () => {
 
-  const history = useHistory();
   var initialUser = {
     name: "",
     email: "",
     type: 0,
     password: "",
   }
+  const history = useHistory();
   const [user, setUser] = useState(initialUser);
+
+  const [formValid, setFormValid] = useState(false);
+  useEffect(() => {
+    // checkFormValidation();
+  })
+
+  const checkFormValidation = () => {
+    var isValid = false;
+    var validProps = [];
+    var allPropsCount = Object.keys(user).length - 1;
+    for (let [key, value] of Object.entries(user)) {
+      if(user[key] !== ""){
+        validProps.push(key);
+      }
+    }
+    
+    isValid = isValid && allPropsCount === validProps.length ? true : false;
+
+    setFormValid(isValid);
+    console.log(isValid);
+  }
 
   const handleSubmit = () => {
     console.log(user);
     new API().postUser(user).then(data => {
       console.log(data);
-      history.push('/books');
     });
+    history.push('/books');
   }
   const handleChange = (e) => {
     setUser({...user, [e.target.name]: e.target.value});
     console.log(user);
+    checkFormValidation();
   }
-
 
   return (
     <div className="register-page">
@@ -44,7 +65,7 @@ const Register = () => {
           <label for="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" id="password" required onChange={(e)=>handleChange(e)}/>
 
-          <button type="submit" class="registerbtn" onClick={() => handleSubmit()}>Register</button>
+          <button disabled={!formValid} type="submit" class="registerbtn" onClick={() => handleSubmit()}>Register</button>
 
           <div class="signin">
             <p>Already have an account? <a href="./login">Sign in</a>.</p>

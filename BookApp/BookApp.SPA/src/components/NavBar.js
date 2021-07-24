@@ -8,16 +8,19 @@ const NavBar = () => {
     <div class="topnav">      
         <div className="nav-topbar">
           <table>
-            <tr>
-              <td>
-                <NavLink className="logo" to="/">
-                  <h1 className="main-text">BookApp</h1>
-                </NavLink>
-              </td>
-              <td>
-                <span className="user-sign">Sign Up</span>
-              </td>
-            </tr>
+            <thead></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <NavLink className="logo" to="/">
+                    <h1 className="main-text">BookApp</h1>
+                  </NavLink>
+                </td>
+                <td>
+                  <span className="user-sign">Sign Up</span>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       

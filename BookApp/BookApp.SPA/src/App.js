@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
-import Auth from './components/Auth';
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Cart from './components/Book';
 import Book from './components/Cart';
 import Home from './components/Home';

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import Account from './components/Account';
 import Auth from './components/Auth';
 import Cart from './components/Book';
 import Book from './components/Cart';
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/" exact component = {Home} />
           <Route path="/books" component = {Book} />
           <Route path="/cart" component = {Cart} />
+          <Route path="/account" component = {Account} />
           <Route path="/register" component = {Register} />
           <Route path="/login" component = {Login} />
       </Switch>

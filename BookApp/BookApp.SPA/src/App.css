@@ -16,7 +16,7 @@
         margin: 0 auto;
     }
     .navlinks table tr td .navlink{
-        width: 200px;
+        width: 100px;
     }
    .navlink {
     float: left;
@@ -59,7 +59,7 @@
 .nav-topbar{
     width: 100%;
     padding: 10px 100px;
-    height: 30px;
+    height: 20px;
 }
 
 .user-sign{

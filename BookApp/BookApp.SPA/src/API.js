@@ -12,7 +12,16 @@ class API {
             })
             .then((response) => response.json())
             .then((a) => {
-                console.log(a);
+                return a;
+            });
+        return result;
+    }
+
+    async getUser(email){
+        var result =
+            fetch(`${baseUrl}users/email/${email}`)
+            .then((response) => response.json())
+            .then((a) => {
                 return a;
             });
         return result;

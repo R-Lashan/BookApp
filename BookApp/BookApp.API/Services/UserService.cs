@@ -21,7 +21,11 @@ namespace BookApp.API.Services
 
         public User GetUserById(int id)
         {
-            return context.Users.SingleOrDefault(x => x.Id == id);
+            return context.Users.FirstOrDefault(x => x.Id == id);
+        }
+        public User GetUserByEmail(string email)
+        {
+            return context.Users.FirstOrDefault(x => x.Email == email);
         }
 
         public int AddUser(User user)

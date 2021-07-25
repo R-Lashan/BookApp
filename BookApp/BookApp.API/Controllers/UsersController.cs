@@ -22,9 +22,15 @@ namespace BookApp.API.Controllers
         }
 
         [HttpGet("{id}")]
-        public User GetAll([FromRoute] int id)
+        public User Get([FromRoute] int id)
         {
             return userService.GetUserById(id);
+        }
+
+        [HttpGet("email/{email}")]
+        public User GetByEmail([FromRoute] string email)
+        {
+            return userService.GetUserByEmail(email);
         }
 
         [HttpPost]

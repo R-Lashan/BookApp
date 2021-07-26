@@ -1,5 +1,6 @@
 ﻿using BookApp.API.Interfaces;
 using BookApp.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -25,6 +26,7 @@ namespace BookApp.API.Services
 
         public int AddBook(Book book)
         {
+            book.Price = Convert.ToDouble(book.Price);
             context.Books.Add(book);
             context.SaveChanges();
             return book.Id;

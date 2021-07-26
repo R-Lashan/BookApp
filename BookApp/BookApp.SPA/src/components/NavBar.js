@@ -36,6 +36,9 @@ const NavBar = () => {
             <td>
               <NavLink className="navlink" activeClassName="is-active" to="/account">Account</NavLink>
             </td>
+            <td>
+              <NavLink className="navlink" activeClassName="is-active" to="/admin">Admin</NavLink>
+            </td>
           </tr>
         </table>
       </div>

@@ -48,7 +48,7 @@ const Register = () => {
           <label for="email"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="email" id="email" required onChange={(e)=>handleChange(e)}/>
 
-          <label for="psw"><b>Password</b></label>
+          <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" id="password" required onChange={(e)=>handleChange(e)}/>
 
           <button type="submit" class="registerbtn" onClick={(e) => handleSubmit(e)}>Register</button>

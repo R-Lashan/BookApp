@@ -2,9 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 import Account from './components/Account';
 import Admin from './components/Admin';
-import Auth from './components/Auth';
-import Cart from './components/Book';
-import Book from './components/Cart';
+import Cart from './components/Cart';
+import Books from './components/Books';
 import Home from './components/Home';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
@@ -16,7 +15,7 @@ const App = () => {
       <NavBar />
       <Switch>
           <Route path="/" exact component = {Home} />
-          <Route path="/books" component = {Book} />
+          <Route path="/books" component = {Books} />
           <Route path="/cart" component = {Cart} />
           <Route path="/account" component = {Account} />
           <Route path="/register" component = {Register} />

@@ -1,0 +1,47 @@
+.books-page{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.books-page .title{
+    text-align: left;
+    margin: 30px 100px;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 0px 40px;
+    grid-column-gap: 40px;
+    grid-row-gap: 40px;
+  }
+  
+  .grid-item {
+    background-color: rgb(226, 25, 25);
+    color: white;
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .btn {
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: none;
+    margin: 20px 2px;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .buyBtn{
+      background: rgb(85, 122, 204);
+  }
+  .addBtn{
+    background: rgb(31, 167, 76);
+}
+
+.book-details span{
+    font-weight: bold;
+    font-size: 20px;
+}

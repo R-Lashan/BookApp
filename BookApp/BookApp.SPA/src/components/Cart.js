@@ -5,7 +5,10 @@ const Cart = () => {
     <div className="cart-page">
       
     </div>
+
+
   );
+ 
 }
 
 export default Cart;

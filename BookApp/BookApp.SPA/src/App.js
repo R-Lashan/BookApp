@@ -8,12 +8,14 @@ import Home from './components/Home';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Register from './components/Register';
+import { AppContextProvider } from './AppContext';
 
 const App = () => {
   return (
     <Router>
       <NavBar />
       <Switch>
+        <AppContextProvider>
           <Route path="/" exact component = {Home} />
           <Route path="/books" component = {Books} />
           <Route path="/cart" component = {Cart} />
@@ -21,6 +23,7 @@ const App = () => {
           <Route path="/register" component = {Register} />
           <Route path="/login" component = {Login} />
           <Route path="/admin" component = {Admin} />
+        </AppContextProvider>
       </Switch>
     </Router>
   );

@@ -1,0 +1,28 @@
+.cart-page{
+    height: 100vh;
+}
+.cart-page table{
+    display: block;
+    width: 100%;
+    padding: 20px;
+}
+
+.cart-page table thead tr {
+    text-align: center;
+}
+.cart-page table thead tr td {
+    padding: 20px;
+    text-align: center;
+    height: 50px;
+    min-height: 40px;
+}
+.cart-page table tbody tr {
+    text-align: center;
+    background: white;
+}
+.cart-page table tr td{
+    padding: 20px;
+    text-align: center;
+    height: 50px;
+    min-height: 40px;
+}

@@ -1,28 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { useHistory } from 'react-router';
 import API from '../API';
+import { AppContext } from '../AppContext';
 import './styles/Books.css';
 
 const Books = () => {
   
   const [books, setBooks] = useState([]);
-  const colors = ["rgb(52, 99, 75)", "rgb(52, 80, 99)", "rgb(107, 57, 92)", 
-  "rgb(0, 127, 177)", "rgb(240, 147, 9)", "rgb(22, 150, 39)", "rgb(226, 25, 25)"];
-
+  const [selectedBooks, setSelectedBooks] = useState([]);
+  const appContext = useContext(AppContext);
+  const history = useHistory();
+  
   useEffect(() => {
     getAllBooks();
   }, []);
-
+    
   const getAllBooks = () => {
     new API().getAllBooks().then(data => {
-      setBooks(data);
+        var mappedBooks = data.map((b, i)=> {
+          b.color = `#${b.id*1}${b.id*1}${b.id*1}`;
+        return b;
     })
+    setBooks(mappedBooks);
+  })}
+  
+  const handleBuy = (book) => {
+    addToCart(book);
+    history.push('/cart');
   }
 
-  const addBook = () => {
-    
+  const handleAdd = (book) => {
+    addToCart(book);
   }
-  const buyBook = () => {
-    
+
+  const addToCart = (book) => {
+    if(!appContext.books.some(b => b.id === book.id)){
+      setSelectedBooks([...selectedBooks, book]);
+      appContext.addBooks([book]);
+    }   
   }
 
   return (
@@ -32,7 +47,7 @@ const Books = () => {
       <div className="grid-container">
         {books.map((b, i) => {
           return (
-        <div className="grid-item" style={{background: `${colors[Math.floor(Math.random() * 8)]}`}}>
+        <div className="grid-item" style={{background: b.color}}>
             <div className="book">
               <div className="book-img"></div>
               <div className="book-details">
@@ -42,8 +57,8 @@ const Books = () => {
                 <span>${b.price}</span>
               </div>
               <div className="actions">
-                <button type="submit" class="buyBtn btn" onClick={(e) => buyBook(e)}>Buy</button>
-                <button type="submit" class="addBtn btn" onClick={(e) => addBook(e)}>Add</button>
+                <button type="submit" class="buyBtn btn" onClick={() => handleBuy(b)}>Buy</button>
+                <button type="submit" class="addBtn btn" onClick={() => handleAdd(b)}>Add</button>
               </div>
             </div>
         </div>

@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import '../App.css';
 import { NavLink } from 'react-router-dom';
+import { AppContext } from '../AppContext';
 
 const NavBar = () => {
+
+  const appContext = useContext(AppContext);
+  const [itemsCount, setItemsCount] = useState(0);
+
+  useEffect(() => {
+    setItemsCount(appContext.books.length);
+  }, [appContext.books.length])
 
   return (
     <div class="topnav">      
@@ -31,7 +39,9 @@ const NavBar = () => {
               <NavLink className="navlink" activeClassName="is-active" to="/books">Books</NavLink>
             </td>
             <td>
-              <NavLink className="navlink" activeClassName="is-active" to="/cart">Cart</NavLink>
+              <NavLink className="navlink" activeClassName="is-active" to="/cart">Cart
+                <span className="cart-count">{itemsCount}</span>
+              </NavLink>
             </td>
             <td>
               <NavLink className="navlink" activeClassName="is-active" to="/account">Account</NavLink>

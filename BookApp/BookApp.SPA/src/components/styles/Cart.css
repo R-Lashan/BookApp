@@ -1,28 +1,91 @@
 .cart-page{
     height: 100vh;
+    text-align: center;
 }
 .cart-page table{
     display: block;
+    width: 80%;
+    padding: 0px 20px;
+    margin: 0 auto;
+}
+.cart-page .title{
+    text-align: left;
+    margin: 30px 100px;
+}
+.cart-page table tr .qty{
+    width: 60px;
+    height: 10px;
+    margin-top: 30px;
+}
+.cart-page table .td-row{
+    border: none;
+    border-radius: 10px;
+    width: 80%;
+    padding: 0;
+    margin: 0 auto;
+}
+.cart-page table .td-row .remove-btn{
+    background: rgb(223, 30, 30);
+    width: 20px;
+    height: 20px;
+    color: white;
+    padding: 4px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.cart-page table .th-row th{
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+    width: 160px;
+    margin: 0 auto;
+    text-align: center;
+}
+.cart-page table .td-row td{
+    border: none;
+    border-radius: 10px;
+    width: 200px;
+    padding: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+.cart-page table .table-body {
+    height: 280px;
+    overflow-y: scroll;
+}
+.cart-page table .table-head {
+    overflow-y: scroll;
+}
+.checkout {
+    position: fixed;
+    bottom: 0;
     width: 100%;
+    height: 100px;
+    background: rgb(230, 230, 230);
+    text-align: right;
+    padding-top: 20px;
+}
+.checkout .total{
+    font-family: 'Calibri';
+    font-size: 40px;
+    font-weight: bold;
+    color: #111;
     padding: 20px;
+    margin-top: 10px;
+}
+.checkout .checkout-btn{
+    font-size: 24px;
+    font-weight: bold;
+    background: rgb(57, 168, 72);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 10px 200px 0px 20px;
 }
 
-.cart-page table thead tr {
-    text-align: center;
-}
-.cart-page table thead tr td {
-    padding: 20px;
-    text-align: center;
-    height: 50px;
-    min-height: 40px;
-}
-.cart-page table tbody tr {
-    text-align: center;
-    background: white;
-}
-.cart-page table tr td{
-    padding: 20px;
-    text-align: center;
-    height: 50px;
-    min-height: 40px;
+.checkout .checkout-btn:hover{
+    background: rgb(49, 136, 61);
 }

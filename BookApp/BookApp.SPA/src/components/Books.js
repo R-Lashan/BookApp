@@ -19,6 +19,7 @@ const Books = () => {
     new API().getAllBooks().then(data => {
         var mappedBooks = data.map((b, i)=> {
           b.color = `#${b.id*1}${b.id*1}${b.id*1}`;
+          b.quantity = 1;
         return b;
     })
     setBooks(mappedBooks);

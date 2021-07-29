@@ -18,7 +18,7 @@ const Books = () => {
   const getAllBooks = () => {
     new API().getAllBooks().then(data => {
         var mappedBooks = data.map((b, i)=> {
-          b.color = `#${b.id*1}${b.id*1}${b.id*1}`;
+          b.color = `#444`;
           b.quantity = 1;
         return b;
     })

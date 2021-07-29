@@ -73,7 +73,7 @@
 }
 
 .logout-btn{
-  background: rgb(11, 179, 100);
+  background: rgb(235, 38, 38);
   color: white;
   font-weight: bold;
   border-radius: 6px;
@@ -82,7 +82,7 @@
   cursor: pointer;
 }
 .logout-btn:hover{
-  background:rgb(20, 156, 73);
+  background:rgb(209, 14, 14);
 }
 
 .user-sign .user-name{
@@ -93,7 +93,6 @@
   border: none;
   cursor: pointer;
 }
-
 
 .cart-count{
   background: rgb(247, 42, 42);

@@ -19,7 +19,7 @@
     background-color: #ddd;
     outline: none;
   } 
-  .addBookBtn, .updateBookBtn {
+  .addBookBtn, .editBookBtn {
     background-color: #04AA6D;
     color: white;
     padding: 16px 20px;
@@ -51,15 +51,17 @@
     vertical-align: top;
     padding: 30px 0px 30px 100px;
 }
+
+.panel {
+  margin-top: -10px;
+}
 .panel table{
     display: block;
     width: 100%;
     padding: 20px;
-    background: whitesmoke;
+    background: white;
     height: 400px;
-    overflow-y: scroll;
 }
-
 .panel table thead tr {
     text-align: center;
 }
@@ -88,6 +90,7 @@
     color: white;
     margin: 2px;
     cursor: pointer;
+    font-size: 12px;
 }
 
 .panel table .edit-btn{
@@ -96,4 +99,41 @@
 
 .panel table .delete-btn{
     background: rgb(221, 26, 0);
+}
+
+.panel table .table-body {
+  height: 300px;
+  overflow-y: scroll;
+}
+.panel table .table-head {
+  overflow-y: scroll;
+}
+
+.panel table .th-row th{
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  width: 160px;
+  margin: 0 auto;
+  text-align: center;
+  height: 40px;
+}
+.panel table .td-row td{
+  border: none;
+  border-radius: 10px;
+  width: 200px;
+  padding: 0;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.admin-message-box{
+  width: 300px;
+  height: auto;
+  color: rgb(109, 109, 109);
+  vertical-align: center;
+  margin: 120px auto;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
 }

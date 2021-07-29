@@ -43,8 +43,9 @@ const Books = () => {
 
   return (
     <div className="books-page">
+      {books.length > 0 ?
+      <div>
       <h1 className="title">Buy Your Favourite Books Here!</h1>
-
       <div className="grid-container">
         {books.map((b, i) => {
           return (
@@ -65,6 +66,12 @@ const Books = () => {
         </div>
         )})}
       </div>
+      </div>
+      :
+      <div className="books-message-box">
+        <h1>No Books Available :(</h1>
+      </div>
+      }
     </div>
   );
 }

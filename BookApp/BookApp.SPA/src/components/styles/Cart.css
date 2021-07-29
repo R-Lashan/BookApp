@@ -13,7 +13,7 @@
     margin: 30px 100px;
 }
 .cart-page table tr .qty{
-    width: 60px;
+    width: 40px;
     height: 10px;
     margin-top: 30px;
 }
@@ -25,7 +25,7 @@
     margin: 0 auto;
 }
 .cart-page table .td-row .remove-btn{
-    background: rgb(223, 30, 30);
+    background: rgb(82, 82, 82);
     width: 20px;
     height: 20px;
     color: white;
@@ -88,4 +88,26 @@
 
 .checkout .checkout-btn:hover{
     background: rgb(49, 136, 61);
+}
+
+.message-box{
+    width: 400px;
+    height: auto;
+    color: rgb(109, 109, 109);
+    vertical-align: center;
+    margin: 100px auto;
+    padding: 40px 80px 60px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.message-box button{
+    background: rgb(60, 60, 165);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
 }

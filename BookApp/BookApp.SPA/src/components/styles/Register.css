@@ -6,6 +6,7 @@
 .container {
     padding: 16px;
     background-color: white;
+
   }
   
   input[type=text], input[type=password], input[type=number]{
@@ -25,12 +26,11 @@
   .registerbtn {
     background-color: #04AA6D;
     color: white;
-    padding: 16px 20px;
+    padding: 16px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
+    width: 400px;
   }
   
   .registerbtn:hover {
@@ -42,6 +42,5 @@
   }
   
   .signin {
-    background-color: #f1f1f1;
     text-align: center;
   }

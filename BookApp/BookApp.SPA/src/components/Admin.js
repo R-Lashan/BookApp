@@ -1,11 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import API from '../API';
+import { AppContext } from '../AppContext';
 import './styles/Admin.css'
 
 const Admin = () => {
 
   const history = useHistory();
+  const appContext = useContext(AppContext);
+  const [signedUser, setSignedUser]= useState({});
+
   var initialBook = {
     id: 0,
     title: "",
@@ -20,6 +24,10 @@ const Admin = () => {
   useEffect(() => {
     getAllBooks();
   })
+
+  useEffect(() => {
+    setSignedUser(appContext.signedUser);
+  }, [appContext.signedUser])
 
   const getAllBooks = () => {
     new API().getAllBooks().then(data => {
@@ -57,9 +65,10 @@ const Admin = () => {
     new API().deleteBook(bookId);
   }
 
-  return (
-    <div className="admin-page row">
-    <table className="layout"> 
+  var body;
+  if(signedUser.type === "admin"){
+    body =
+    <table className="layout">
       <tr>
         <td className="left-col">
         <form className="form">
@@ -121,7 +130,7 @@ const Admin = () => {
                     </div>
                     </table> 
                     :
-                    <div className="admin-message-box">
+                    <div className="admin-table-message-box">
                       <h1>Bookshelf is empty :(</h1>
                       <h3>Add some Books to show.</h3>
                     </div>
@@ -130,7 +139,19 @@ const Admin = () => {
         </td>
       </tr>
     </table>
-            
+  }
+  else {
+    body =
+    <div className="message-box">
+      <h1>You aren't signed in :(</h1>
+      <h3>Please Sign in as Admin to View your Account.</h3>
+      <button onClick={() => history.push('/login')}>Sign in as Admin</button>
+    </div>
+  }
+
+  return (
+    <div className="admin-page row">
+      {body}        
     </div>
   );
 }

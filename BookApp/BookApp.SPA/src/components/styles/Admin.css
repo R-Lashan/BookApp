@@ -127,12 +127,23 @@
   text-align: center;
 }
 
-.admin-message-box{
-  width: 300px;
+.admin-table-message-box{
+  width: 500px;
   height: auto;
   color: rgb(109, 109, 109);
   vertical-align: center;
   margin: 120px auto;
+  border: none;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.admin-panel-message-box{
+  width: 500px;
+  height: auto;
+  color: rgb(109, 109, 109);
+  vertical-align: center;
+  margin: 160px auto;
   border: none;
   border-radius: 10px;
   text-align: center;

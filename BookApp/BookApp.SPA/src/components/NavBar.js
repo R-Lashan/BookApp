@@ -9,7 +9,6 @@ const NavBar = () => {
   const [itemsCount, setItemsCount] = useState(0);
 
   const location = useLocation();
-  console.log(location.pathname);
 
   useEffect(() => {
     setItemsCount(appContext.books.length);

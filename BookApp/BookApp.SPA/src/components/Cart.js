@@ -47,6 +47,20 @@ const Cart = () => {
   }
 
   const handleCheckout = (totalPrice) => {
+
+    if(appContext.signedUser.type === "user"){
+      userCheckout(totalPrice)
+    }
+    else if (appContext.signedUser.type === "admin"){
+      alert("Admin cannot checkout. Please login as a User");
+      history.push('/login');
+    }
+    else {
+      history.push('/login');
+    }
+  }
+
+  const userCheckout = (totalPrice) => {
     var totalQty = items.reduce((accumulator, current) => {
       return accumulator + current.quantity * 1;
     }, 0)

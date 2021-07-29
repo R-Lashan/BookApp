@@ -51,6 +51,7 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <h3 className="back-btn" onClick={(e) => history.push('/')}>Back to Home</h3>
       <form>
         <div class="container">
           <h1>Login</h1>

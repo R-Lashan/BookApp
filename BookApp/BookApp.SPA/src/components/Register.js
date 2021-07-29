@@ -14,7 +14,6 @@ const Register = () => {
   const history = useHistory();
   const [user, setUser] = useState(initialUser);
 
-
   const handleSubmit = (e) => {
     var formIsValid = checkFormValidation(user);
     if(formIsValid){
@@ -41,6 +40,7 @@ const Register = () => {
 
   return (
     <div className="register-page">
+      <h3 className="back-btn"  onClick={(e) => history.push('/')}>Back to Home</h3>
       <form>
         <div class="container">
           <h1>Register</h1>

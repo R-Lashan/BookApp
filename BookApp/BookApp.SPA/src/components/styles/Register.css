@@ -45,3 +45,16 @@
   .signin {
     text-align: center;
   }
+  
+  .back-btn{
+    color: #777;
+    position: absolute;
+    left: 0;
+    margin-left: 100px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .back-btn:hover{
+    color: #222;
+  }

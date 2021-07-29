@@ -9,6 +9,8 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const appContext = useContext(AppContext);
   const history = useHistory();
+  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const [signedUser, setSignedUser] = useState(signedInUser);
 
   useEffect(() => {
     setItems([...appContext.books]);
@@ -17,6 +19,10 @@ const Cart = () => {
   useEffect(() => {
     calculateTotalPrice(items);
   }, [items])
+
+  useEffect(() => {
+    setSignedUser(signedInUser);
+  }, [signedInUser.type]);
 
   const handleRemove = (index) => {
     setItems([...appContext.books]);
@@ -47,6 +53,21 @@ const Cart = () => {
   }
 
   const handleCheckout = (totalPrice) => {
+
+    if(signedUser.type === "customer"){
+      userCheckout(totalPrice)
+    }
+    else if (signedUser.type === "admin"){
+      alert("Admin cannot checkout. Please login as a Customer");
+      handleRemoveAll();
+      history.push('/login');
+    }
+    else {
+      history.push('/login');
+    }
+  }
+
+  const userCheckout = (totalPrice) => {
     var totalQty = items.reduce((accumulator, current) => {
       return accumulator + current.quantity * 1;
     }, 0)

@@ -4,7 +4,7 @@ export const AppContext = createContext({
     books: [],
     addBooks: () => {},
     removeBooks: () => {},
-    removeAllBooks: () => {},
+    removeAllBooks: () => {}
 });
 
 export const AppContextProvider = props => {

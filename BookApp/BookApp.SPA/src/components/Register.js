@@ -5,23 +5,27 @@ import { useHistory } from 'react-router';
 
 const Register = () => {
 
-  const history = useHistory();
   var initialUser = {
     name: "",
     email: "",
     type: 0,
     password: "",
   }
+  const history = useHistory();
   const [user, setUser] = useState(initialUser);
 
   const handleSubmit = (e) => {
     var formIsValid = checkFormValidation(user);
     if(formIsValid){
       e.preventDefault();
-      console.log(user);
       new API().postUser(user).then(data => {
-        console.log(data);
         setUser(initialUser);
+        var signedUser = {
+          name: user.name,
+          email: user.email,
+          type: user.type === 0 ? 'customer' : 'admin'
+        }
+        localStorage.setItem("user", JSON.stringify(signedUser))
         history.push('/books');
       });
     }
@@ -36,6 +40,7 @@ const Register = () => {
 
   return (
     <div className="register-page">
+      <h3 className="back-btn"  onClick={(e) => history.push('/')}>Back to Home</h3>
       <form>
         <div class="container">
           <h1>Register</h1>

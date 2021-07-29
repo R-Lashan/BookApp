@@ -1,0 +1,47 @@
+
+.home-page .text-1{
+    font-size: 40px;
+    margin: 100px 0px 0px;
+    color: #222;
+}
+
+.home-page .text-2{
+    font-size: 60px;
+    margin: 20px 0px 40px;
+    color: #222;
+}
+
+.home-page .banner{
+    text-align: center;
+    margin-top: 100px;
+}
+
+.home-page .btn{
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    margin: 0 auto;
+}
+.home-page .books-btn{
+    background: rgb(60, 60, 165);
+}
+.home-page .signin-btn{
+    background: rgb(43, 141, 76);
+}
+.home-page .signup-btn{
+    background: rgb(43, 141, 76);
+}
+
+.home-page .books-btn:hover {
+    background:rgb(38, 38, 110);
+}
+.home-page .signin-btn:hover {
+    background:rgb(38, 110, 70);
+}
+.home-page .signup-btn:hover {
+    background:rgb(38, 110, 70);
+}

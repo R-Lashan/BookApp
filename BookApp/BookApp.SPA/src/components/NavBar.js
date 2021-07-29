@@ -1,19 +1,35 @@
 import React, { useContext, useEffect, useState } from 'react';
 import '../App.css';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useHistory, useLocation } from 'react-router-dom';
 import { AppContext } from '../AppContext';
 
 const NavBar = () => {
 
   const appContext = useContext(AppContext);
   const [itemsCount, setItemsCount] = useState(0);
-
+  const history = useHistory();
+  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const [signedUser, setSignedUser] = useState(signedInUser);
   const location = useLocation();
-  console.log(location.pathname);
 
   useEffect(() => {
     setItemsCount(appContext.books.length);
   }, [appContext.books.length])
+
+  useEffect(() => {
+    setSignedUser(signedInUser);
+  }, [signedInUser.type]);
+
+  const handleLogout = () => {
+    var emptyUser = {
+      name: "",
+      email: "",
+      type: ""
+    };
+    localStorage.setItem("user", JSON.stringify(emptyUser));
+    setSignedUser(emptyUser);
+    history.push('/login');
+  }
 
   return (
     <div>
@@ -28,8 +44,17 @@ const NavBar = () => {
                         <h1 className="main-text">BookApp</h1>
                       </NavLink>
                     </td>
-                    <td>
-                      <span className="user-sign">Sign Up</span>
+                    <td className="sign-section">
+                      {
+                        signedUser.type === "" 
+                          ? 
+                          <span className="signin-btn" onClick={() => history.push('/login')}>Sign in</span>
+                          : 
+                          <span className="user-sign">
+                            <span className="user-name">{signedUser.name}</span>
+                            <span className="logout-btn" onClick={() => handleLogout()}>Logout</span>
+                          </span>
+                      }   
                     </td>
                   </tr>
                 </table>

@@ -50,25 +50,48 @@
     background-color: white;
     color: #111;
   }
-  .home-page{
-    width: 100%;
-    background-color: white;
-    padding: 40px 100px;
-}
 
 .nav-topbar{
     width: 100%;
     padding: 10px 100px;
-    height: 20px;
+    height: 40px;
+}
+.sign-section{
+  position: absolute;
+  right: 0;
+  padding: 40px 100px
 }
 
-.user-sign{
-    background: white;
-    padding: 4px 8px;
-    border: none;
-    border-radius: 10px;
-    position: absolute;
-    left: 90%;
+.signin-btn{
+  background: rgb(11, 179, 100);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn{
+  background: rgb(235, 38, 38);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+}
+.logout-btn:hover{
+  background:rgb(209, 14, 14);
+}
+
+.user-sign .user-name{
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
 }
 
 .cart-count{

@@ -1,6 +1,6 @@
 .login-page{
     width: 400px;
-    margin: 0 auto;
+    margin: 40px auto;
 }
 
 .container {
@@ -23,7 +23,8 @@
   }
   
   .loginbtn {
-    background-color: #04AA6D;
+    background-color: #107eaa;
+    border-radius: 10px;
     color: white;
     padding: 16px 20px;
     margin: 8px 0;
@@ -42,4 +43,17 @@
   
   .signup {
     text-align: center;
+  }
+
+  .back-btn{
+    color: #777;
+    position: absolute;
+    left: 0;
+    margin-left: 100px;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .back-btn:hover{
+    color: #222;
   }

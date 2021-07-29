@@ -7,7 +7,7 @@
   }
   
   input[type=text], input[type=password], input[type=number]{
-    width: 100%;
+    width: 300px;
     padding: 15px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -20,13 +20,13 @@
     outline: none;
   } 
   .addBookBtn, .editBookBtn {
-    background-color: #04AA6D;
+    background-color: #046daa;
     color: white;
     padding: 16px 20px;
     margin: 0 auto;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 300px;
     opacity: 0.9;
   } 
 

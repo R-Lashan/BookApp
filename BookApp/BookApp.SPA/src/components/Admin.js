@@ -1,14 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import API from '../API';
-import { AppContext } from '../AppContext';
 import './styles/Admin.css'
 
 const Admin = () => {
-
-  const history = useHistory();
-  const appContext = useContext(AppContext);
-  const [signedUser, setSignedUser]= useState({});
 
   var initialBook = {
     id: 0,
@@ -17,17 +12,20 @@ const Admin = () => {
     isbn: "",
     price: 0,
   }
+  const history = useHistory();
   const [book, setBook] = useState(initialBook);
   const [books, setBooks] = useState([]);
   const [action, setAction] = useState("add");
+  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const [signedUser, setSignedUser]= useState(signedInUser);
 
   useEffect(() => {
     getAllBooks();
   })
 
   useEffect(() => {
-    setSignedUser(appContext.signedUser);
-  }, [appContext.signedUser])
+    setSignedUser(signedInUser);
+  }, [signedInUser.type]);
 
   const getAllBooks = () => {
     new API().getAllBooks().then(data => {

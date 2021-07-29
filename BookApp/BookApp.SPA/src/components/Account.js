@@ -1,28 +1,25 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
-import { AppContext } from '../AppContext';
 
 const Account = () => {
 
   const history = useHistory();
-  const appContext = useContext(AppContext);
-  const [signedUser, setSignedUser]= useState({});
+  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const [signedUser, setSignedUser]= useState(signedInUser);
 
   useEffect(() => {
-    setSignedUser(appContext.signedUser);
-  }, [appContext.signedUser])
-
-  console.log(signedUser);
+    setSignedUser(signedInUser);
+  }, [signedInUser.type]);
 
   var body;
-  if(signedUser.type === "user"){
+  if(signedUser.type === "customer"){
     body = ""
   }
   else {
     body = 
     <div className="message-box">
       <h1>You aren't signed in :(</h1>
-      <h3>Please Sign in as User to View your Account.</h3>
+      <h3>Please Sign in as Customer to View your Account.</h3>
       <button onClick={() => history.push('/login')}>Sign in as User</button>
     </div>
   }

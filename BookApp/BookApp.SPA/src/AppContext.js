@@ -2,20 +2,14 @@ import React, { useState, createContext } from 'react';
 
 export const AppContext = createContext({
     books: [],
-    signedUser: {},
     addBooks: () => {},
     removeBooks: () => {},
-    removeAllBooks: () => {},
+    removeAllBooks: () => {}
 });
 
 export const AppContextProvider = props => {
 
     const [books, setBooks] = useState([]);
-    const [signedUser, setSignedUser] = useState({
-        name: "",
-        email: "",
-        type: ""
-    });
 
     const addBooks = (bookList) => {
         setBooks([...books, ...bookList]);
@@ -30,18 +24,12 @@ export const AppContextProvider = props => {
         setBooks([]);
     };
 
-    const addSignedUser = (user) => {
-        setSignedUser(user);
-    }
-
     return (
         <AppContext.Provider value={{ 
             books: books,
-            signedUser: signedUser,
             addBooks: addBooks,
             removeBooks: removeBooks,
             removeAllBooks: removeAllBooks,
-            addSignedUser: addSignedUser,
         }}>
             {props.children}
         </AppContext.Provider>

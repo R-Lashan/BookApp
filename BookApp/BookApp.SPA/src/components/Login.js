@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import './styles/Login.css';
 import API from '../API';
@@ -19,14 +19,23 @@ const Login = () => {
   const [userData, setUserData] = useState(initialUserData);
   const [user, setUser] = useState(initialUser);
 
+  useEffect(() => {
+    setUserData(initialUserData);
+  }, [])
+
   const handleSubmit = (e) => {
     e.preventDefault();
     new API().getUser(userData.email).then(data => {
       setUser(data);
       var userIsValid = checkLoginValidation(data);
-      console.log(userIsValid)
       if(userIsValid){
-        history.push('/books');
+        var signedUser = {
+          name: data.name,
+          email: data.email,
+          type: data.type === 0 ? 'customer' : 'admin'
+        }
+        localStorage.setItem("user", JSON.stringify(signedUser))
+        signedUser.type === 'customer' ? history.push('/books') : history.push('/admin');
       }
     });
   }

@@ -32,7 +32,7 @@ const Admin = () => {
       setBook(initialBook);
     });
   }
-  const handleUpdate = (e) => {
+  const handleEdit = (e) => {
     e.preventDefault();
     new API().updateBook(book).then(data => {
       setBook(initialBook);
@@ -48,8 +48,8 @@ const Admin = () => {
     setBook({...book, [name]: value});
   }
 
-  const handleUpdateAction = (b) => {
-    setAction("update");
+  const handleEditAction = (b) => {
+    setAction("edit");
     setBook(b);
   }
 
@@ -65,12 +65,8 @@ const Admin = () => {
         <form className="form">
               <div class="container">
               {action === 'add' ? 
-                <h1>Add a Book</h1> : <h1>Update Book</h1>
+                <h1>Add a Book</h1> : <h1>Edit Book</h1>
               }
-
-                <p>Create a book by filling the details</p>
-                <hr />
-
                 <label for="name"><b>Title</b></label>
                 <input type="text" placeholder="Title" name="title" id="title" value={book.title} required onChange={(e)=>handleChange(e)}/>
 
@@ -85,8 +81,8 @@ const Admin = () => {
                 <br></br>
 
                 {action === 'add' ? 
-                  <button type="submit" class="addBookBtn" onClick={(e) => handleAdd(e)}>Add Book</button> :
-                  <button type="submit" class="updateBookBtn" onClick={(e) => handleUpdate(e)}>Update Book</button>
+                  <button type="submit" class="addBookBtn" onClick={(e) => handleAdd(e)}>Add</button> :
+                  <button type="submit" class="editBookBtn" onClick={(e) => handleEdit(e)}>Save</button>
                 }
 
               </div>        
@@ -95,33 +91,41 @@ const Admin = () => {
         <td className="right-col">
             <div className="panel">
               <h1>Admin Panel</h1>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Author</th>
-                    <th>ISBN</th>
-                    <th>Price</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {books.map((b, i) => {
-                    return (
-                      <tr>
-                        <td>{b.title}</td>
-                        <td>{b.author}</td>
-                        <td>{b.isbn}</td>
-                        <td>{b.price}</td>
-                        <td>
-                          <button className="edit-btn btn" onClick={() => handleUpdateAction(b)}>Update</button>
-                          <button className="delete-btn btn" onClick={() => handleDelete(b.id)}>Delete</button>
-                        </td>
+              {
+                books.length > 0 ?
+                  <table>
+                    <div className="table-head">
+                      <tr className="th-row">
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>ISBN</th>
+                        <th>Price</th>
+                        <th></th>
                       </tr>
-                    )
-                  })}
-                </tbody>
-                </table>
+                    </div>
+                    <div className="table-body">
+                      {books.map((b, i) => {
+                        return (
+                          <tr className="td-row">
+                            <td>{b.title}</td>
+                            <td>{b.author}</td>
+                            <td>{b.isbn}</td>
+                            <td>{b.price}</td>
+                            <td>
+                              <button className="edit-btn btn" onClick={() => handleEditAction(b)}>Edit</button>
+                              <button className="delete-btn btn" onClick={() => handleDelete(b.id)}>Delete</button>
+                            </td>
+                          </tr>
+                        )
+                      })}
+                    </div>
+                    </table> 
+                    :
+                    <div className="admin-message-box">
+                      <h1>Bookshelf is empty :(</h1>
+                      <h3>Add some Books to show.</h3>
+                    </div>
+                  }
             </div>
         </td>
       </tr>

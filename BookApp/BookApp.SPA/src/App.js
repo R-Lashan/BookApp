@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import Account from './components/Account';
 import Admin from './components/Admin';
 import Cart from './components/Cart';
@@ -12,20 +12,20 @@ import { AppContextProvider } from './AppContext';
 
 const App = () => {
   return (
-    <Router>
-      <NavBar />
-      <Switch>
-        <AppContextProvider>
-          <Route path="/" exact component = {Home} />
-          <Route path="/books" component = {Books} />
-          <Route path="/cart" component = {Cart} />
-          <Route path="/account" component = {Account} />
-          <Route path="/register" component = {Register} />
-          <Route path="/login" component = {Login} />
-          <Route path="/admin" component = {Admin} />
-        </AppContextProvider>
-      </Switch>
-    </Router>
+    <AppContextProvider>
+      <Router>
+        <NavBar />
+        <Switch>
+            <Route path="/" exact component = {Home} />
+            <Route path="/books" component = {Books} />
+            <Route path="/cart" component = {Cart} />
+            <Route path="/account" component = {Account} />
+            <Route path="/register" component = {Register} />
+            <Route path="/login" component = {Login} />
+            <Route path="/admin" component = {Admin} />
+        </Switch>
+      </Router>
+    </AppContextProvider>
   );
 }
 

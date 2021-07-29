@@ -30,7 +30,7 @@
     text-align: center;
     outline: none;
     border: none;
-    border-radius: 20px 20px 0 0;
+    border-radius: 6px 6px 0 0;
     font-weight: bold;
   }
   .topnav li:hover {
@@ -69,6 +69,17 @@
     border-radius: 10px;
     position: absolute;
     left: 90%;
+}
+
+.cart-count{
+  background: rgb(247, 42, 42);
+  color: white;
+  width: 3px;
+  height: 3px;
+  padding: 2px 8px;
+  border: none;
+  border-radius: 50%;
+  margin-left: 10px;
 }
 
 

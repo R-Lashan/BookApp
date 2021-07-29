@@ -9,7 +9,8 @@ const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const appContext = useContext(AppContext);
   const history = useHistory();
-  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const signedInUser = storedUser !== null ? storedUser : appContext.emptyUser;
   const [signedUser, setSignedUser] = useState(signedInUser);
 
   useEffect(() => {
@@ -53,7 +54,6 @@ const Cart = () => {
   }
 
   const handleCheckout = (totalPrice) => {
-
     if(signedUser.type === "customer"){
       userCheckout(totalPrice)
     }

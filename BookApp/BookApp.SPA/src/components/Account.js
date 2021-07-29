@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
+import { AppContext } from '../AppContext';
 
 const Account = () => {
 
   const history = useHistory();
-  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const appContext = useContext(AppContext);
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const signedInUser = storedUser !== null ? storedUser : appContext.emptyUser;
   const [signedUser, setSignedUser]= useState(signedInUser);
 
   useEffect(() => {

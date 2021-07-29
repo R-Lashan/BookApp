@@ -8,7 +8,8 @@ const NavBar = () => {
   const appContext = useContext(AppContext);
   const [itemsCount, setItemsCount] = useState(0);
   const history = useHistory();
-  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const signedInUser = storedUser !== null ? storedUser : appContext.emptyUser;
   const [signedUser, setSignedUser] = useState(signedInUser);
   const location = useLocation();
 
@@ -28,6 +29,7 @@ const NavBar = () => {
     };
     localStorage.setItem("user", JSON.stringify(emptyUser));
     setSignedUser(emptyUser);
+    appContext.removeAllBooks();
     history.push('/login');
   }
 

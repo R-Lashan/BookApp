@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import API from '../API';
+import { AppContext } from '../AppContext';
 import './styles/Admin.css'
 
 const Admin = () => {
@@ -13,10 +14,12 @@ const Admin = () => {
     price: 0,
   }
   const history = useHistory();
+  const appContext = useContext(AppContext);
   const [book, setBook] = useState(initialBook);
   const [books, setBooks] = useState([]);
   const [action, setAction] = useState("add");
-  const signedInUser = JSON.parse(localStorage.getItem("user"));
+  const storedUser = JSON.parse(localStorage.getItem("user"));
+  const signedInUser = storedUser !== null ? storedUser : appContext.emptyUser;
   const [signedUser, setSignedUser]= useState(signedInUser);
 
   useEffect(() => {

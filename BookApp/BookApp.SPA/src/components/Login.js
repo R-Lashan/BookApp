@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import './styles/Login.css';
 import API from '../API';
+import { AppContext } from '../AppContext';
 
 const Login = () => {
   const history = useHistory();
@@ -18,6 +19,7 @@ const Login = () => {
   }
   const [userData, setUserData] = useState(initialUserData);
   const [user, setUser] = useState(initialUser);
+  const appContext = useContext(AppContext);
 
   useEffect(() => {
     setUserData(initialUserData);
@@ -35,7 +37,14 @@ const Login = () => {
           type: data.type === 0 ? 'customer' : 'admin'
         }
         localStorage.setItem("user", JSON.stringify(signedUser))
-        signedUser.type === 'customer' ? history.push('/books') : history.push('/admin');
+        if(signedUser.type === 'customer'){
+          history.push('/books');
+          appContext.removeAllBooks();
+        } 
+        else{
+          history.push('/admin');
+          appContext.removeAllBooks();
+        }        
       }
     });
   }

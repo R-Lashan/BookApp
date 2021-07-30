@@ -10,6 +10,7 @@ namespace BookApp.API.Interfaces
         User GetUserByEmail(string email);
         int AddUser(User user);
         int UpdateUser (User user);
+        void DeleteUser(int id);
         List<Book> GetBooksByUserId(int userId);
     }
 }

@@ -51,6 +51,21 @@ namespace BookApp.API.Services
                 return userFromDb.Id;
             }
         }
+
+        public void DeleteUser(int id)
+        {
+            var userFromDb = context.Users.SingleOrDefault(x => x.Id == id);
+            if (userFromDb == null)
+            {
+                return;
+            }
+            else
+            {
+                context.Users.Remove(userFromDb);
+                context.SaveChanges();
+            }
+        }
+
         public List<Book> GetBooksByUserId(int userId)
         {
             var invoices = context.Invoices.Where(x => x.UserId == userId).ToList();

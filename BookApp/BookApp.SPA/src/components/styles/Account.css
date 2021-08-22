@@ -1,0 +1,36 @@
+.account-page{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.account-message-box{
+    width: 400px;
+    height: auto;
+    color: rgb(109, 109, 109);
+    vertical-align: center;
+    margin: 120px auto;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.account-page .btn{
+    background-color: #107eaa;
+    border-radius:4px;
+    color: white;
+    padding: 4px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.account-page .edit-btn{
+    background: rgb(7, 158, 70);
+}
+
+.account-page .delete-btn{
+    background: rgb(224, 34, 34);
+}

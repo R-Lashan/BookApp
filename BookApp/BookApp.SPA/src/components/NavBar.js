@@ -19,7 +19,7 @@ const NavBar = () => {
 
   useEffect(() => {
     setSignedUser(signedInUser);
-  }, [signedInUser.type]);
+  }, [signedInUser.id]);
 
   const handleLogout = () => {
     var emptyUser = {
@@ -48,7 +48,7 @@ const NavBar = () => {
                     </td>
                     <td className="sign-section">
                       {
-                        signedUser.type === "" 
+                        signedUser.type === "" || signedInUser == null
                           ? 
                           <span className="signin-btn" onClick={() => history.push('/login')}>Sign in</span>
                           : 

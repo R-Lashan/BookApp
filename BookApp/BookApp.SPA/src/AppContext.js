@@ -3,7 +3,9 @@ import React, { useState, createContext } from 'react';
 export const AppContext = createContext({
     books: [],
     emptyUser: {},
+    user: {},
     addBooks: () => {},
+    addUser: () => {},
     removeBooks: () => {},
     removeAllBooks: () => {}
 });
@@ -15,6 +17,14 @@ export const AppContextProvider = props => {
         name: "",
         email: "",
         type: ""
+    });
+
+    const [user, setUser] = useState({
+        id: 0,
+        name: "",
+        email: "",
+        type: 0,
+        password: "",
     });
 
     const addBooks = (bookList) => {
@@ -30,11 +40,17 @@ export const AppContextProvider = props => {
         setBooks([]);
     };
 
+    const addUser = (user) => {
+        setUser(user);
+    }
+
     return (
         <AppContext.Provider value={{ 
             books: books,
             emptyUser: emptyUser,
+            user: user,
             addBooks: addBooks,
+            addUser: addUser,
             removeBooks: removeBooks,
             removeAllBooks: removeAllBooks,
         }}>

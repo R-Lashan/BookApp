@@ -21,6 +21,7 @@ const Register = () => {
       new API().postUser(user).then(data => {
         setUser(initialUser);
         var signedUser = {
+          id: data,
           name: user.name,
           email: user.email,
           type: user.type === 0 ? 'customer' : 'admin'

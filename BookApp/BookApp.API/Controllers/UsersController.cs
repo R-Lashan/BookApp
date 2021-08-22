@@ -40,7 +40,7 @@ namespace BookApp.API.Controllers
         }
 
         [HttpPut]
-        public int Update([FromBody] User user)
+        public User Update([FromBody] User user)
         {
             return userService.UpdateUser(user);
         }

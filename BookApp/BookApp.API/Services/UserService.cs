@@ -34,12 +34,12 @@ namespace BookApp.API.Services
             context.SaveChanges();
             return user.Id;
         }
-        public int UpdateUser(User user)
+        public User UpdateUser(User user)
         {
             var userFromDb = context.Users.SingleOrDefault(x => x.Id == user.Id);
             if (userFromDb == null)
             {
-                return 0;
+                return new User();
             }
             else
             {
@@ -48,7 +48,7 @@ namespace BookApp.API.Services
                 userFromDb.Password = user.Password;
                 context.Users.Update(userFromDb);
                 context.SaveChanges();
-                return userFromDb.Id;
+                return userFromDb;
             }
         }
 

@@ -18,7 +18,16 @@ namespace BookApp.API.Services
 
         public List<Invoice> GetInvoicesByUserId(int userId)
         {
-            return context.Invoices.Where(x => x.UserId == userId).ToList();
+            var invoices = context.Invoices.Include(x => x.BookInvoices).Where(x => x.UserId == userId).ToList();
+
+            foreach(Invoice invoice in invoices)
+            {
+                foreach (BookInvoice bookInvoice in invoice.BookInvoices)
+                {
+                    bookInvoice.Invoice = null;
+                }
+            }
+            return invoices;
         }
 
         public int AddInvoice(InvoiceModel invoiceModel)
@@ -51,6 +60,7 @@ namespace BookApp.API.Services
                     InvoiceId = invoiceId,
                     BookId = bookId
                 };
+                bookInvoice.Invoice = null;
                 context.BookInvoice.Add(bookInvoice);
                 context.SaveChanges();
             }

@@ -28,7 +28,7 @@ const Admin = () => {
 
   useEffect(() => {
     setSignedUser(signedInUser);
-  }, [signedInUser.type]);
+  }, [signedInUser.id]);
 
   const getAllBooks = () => {
     new API().getAllBooks().then(data => {
@@ -63,7 +63,9 @@ const Admin = () => {
   }
 
   const handleDelete = (bookId) => {
-    new API().deleteBook(bookId);
+    if(window.confirm("Are you sure you want to DELETE this Book?")){
+      new API().deleteBook(bookId);
+    }
   }
 
   var body;
@@ -91,8 +93,8 @@ const Admin = () => {
                 <br></br>
 
                 {action === 'add' ? 
-                  <button type="submit" class="addBookBtn" onClick={(e) => handleAdd(e)}>Add</button> :
-                  <button type="submit" class="editBookBtn" onClick={(e) => handleEdit(e)}>Save</button>
+                  <button type="submit" className="addBookBtn" onClick={(e) => handleAdd(e)}>Add</button> :
+                  <button type="submit" className="editBookBtn" onClick={(e) => handleEdit(e)}>Save</button>
                 }
 
               </div>        

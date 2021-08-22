@@ -32,11 +32,13 @@ const Login = () => {
       var userIsValid = checkLoginValidation(data);
       if(userIsValid){
         var signedUser = {
+          id: data.id,
           name: data.name,
           email: data.email,
           type: data.type === 0 ? 'customer' : 'admin'
         }
         localStorage.setItem("user", JSON.stringify(signedUser))
+        appContext.addUser(data)
         if(signedUser.type === 'customer'){
           history.push('/books');
           appContext.removeAllBooks();

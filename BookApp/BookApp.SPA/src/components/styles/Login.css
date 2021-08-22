@@ -57,3 +57,8 @@
   .back-btn:hover{
     color: #222;
   }
+
+  .note{
+    color: #777;
+    font-size: 14px;
+  }

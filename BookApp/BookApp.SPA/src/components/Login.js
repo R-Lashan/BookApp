@@ -75,6 +75,8 @@ const Login = () => {
           <label for="password"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="password" id="psw" onChange={(e)=>handleChange(e)} required />
 
+          <p className="note">To login as admin: <br /> Email - <strong>admin@gmail.com</strong>,  Password - <strong>admin</strong></p>
+          
           <button type="submit" class="loginbtn" onClick={(e) => handleSubmit(e)}>Login</button>
           
           <div class="container signup">

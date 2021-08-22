@@ -27,6 +27,33 @@ class API {
         return result;
     }
 
+    async updateUser(user){
+        var result =
+            fetch(`${baseUrl}users`,
+            {
+                method: "PUT",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(user)           
+            })
+            .then((response) => response.json())
+            .then((a) => {
+                return a;
+            });
+        return result;
+    }
+
+    async deleteUser(userId){
+        var result =
+            fetch(`${baseUrl}users/${userId}`, {
+                method: 'DELETE',
+            })
+            .then((response) => response.json())
+            .then((a) => {
+                return a;
+            });
+        return result;
+    }
+
     async addBook(book){
         var result =
             fetch(`${baseUrl}books`,
@@ -72,6 +99,31 @@ class API {
     async getAllBooks(){
         var result =
             fetch(`${baseUrl}books`)
+            .then((response) => response.json())
+            .then((a) => {
+                return a;
+            });
+        return result;
+    }
+
+    async getInvoicesByUserId(userId){
+        var result =
+            fetch(`${baseUrl}invoices/users/${userId}`)
+            .then((response) => response.json())
+            .then((a) => {
+                return a;
+            });
+        return result;
+    }
+
+    async postInvoice(invoice){
+        var result =
+            fetch(`${baseUrl}invoices`,
+            {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(invoice)           
+            })
             .then((response) => response.json())
             .then((a) => {
                 return a;

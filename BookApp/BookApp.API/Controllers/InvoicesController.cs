@@ -18,7 +18,7 @@ namespace BookApp.API.Controllers
 
         [HttpGet("users/{userId}")]
         public List<Invoice> GetAll([FromRoute] int userId)
-        {
+      {
             return invoiceService.GetInvoicesByUserId(userId);
         }
 

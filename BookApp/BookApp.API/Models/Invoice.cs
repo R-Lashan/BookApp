@@ -12,6 +12,6 @@ namespace BookApp.API.Models
         public int UserId { get; set; }
         public User User { get; set; }
 
-        public ICollection<BookInvoice> BookInvoice { get; set; }
+        public ICollection<BookInvoice> BookInvoices { get; set; }
     }
 }

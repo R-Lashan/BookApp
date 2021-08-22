@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { AppContext } from '../AppContext';
 import "./styles/Cart.css";
+import API from '../API';
 
 const Cart = () => {
 
@@ -74,12 +75,25 @@ const Cart = () => {
 
     if(totalPrice > 0) {
       alert(`You have succcessfuly purchased ${totalQty} Books for $${totalPrice}. \nThank you!`)
+      saveInvoice(signedUser.id, totalPrice*1);
     } 
     else {
       alert("Please add books before checking out.")
     }
     handleRemoveAll();
     history.push('/books');
+  }
+
+  const saveInvoice = (userId, totalPrice) => {
+    var invoice = {
+      userId: userId,
+      totalPrice: totalPrice,
+      bookIds: []
+    };
+    const mappedBooks = items.map(b => {
+      invoice.bookIds.push(b.id);
+    });
+    new API().postInvoice(invoice).then(data => {})
   }
 
   return (

@@ -39,6 +39,18 @@ namespace BookApp.API.Controllers
             return userService.AddUser(user);
         }
 
+        [HttpPut]
+        public User Update([FromBody] User user)
+        {
+            return userService.UpdateUser(user);
+        }
+
+        [HttpDelete("{id}")]
+        public void Delete([FromRoute] int id)
+        {
+            userService.DeleteUser(id);
+        }
+
         [HttpGet("{id}/books")]
         public List<Book> GetBooksByUserId([FromRoute] int id)
         {

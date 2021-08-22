@@ -22,7 +22,9 @@ const Account = () => {
   const [signedUser, setSignedUser]= useState(signedInUser);
 
   useEffect(() => {
-    getAllInvoices(signedUser.id);
+    if(storedUser.email !== ""){
+      getAllInvoices(signedUser.id);
+    }
   }, [storedUser]);
 
   useEffect(() => {
@@ -32,6 +34,7 @@ const Account = () => {
 
   const getAllInvoices = (userId) => {
     new API().getInvoicesByUserId(userId).then(data => {
+      console.log(data)
       setInvoices([...data]);
     });
   }

@@ -12,7 +12,7 @@ namespace BookApp.API.SeedWork
                 Name = "Admin",
                 Type = UserType.Admin,
                 Email = "admin@gmail.com",
-                Password = "admin"
+                Password = "admin123"
             };
 
             var adminFromDb = context.Users.FirstOrDefault();

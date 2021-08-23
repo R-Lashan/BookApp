@@ -21,8 +21,22 @@ const Account = () => {
   const signedInUser = storedUser !== null ? storedUser : appContext.emptyUser;
   const [signedUser, setSignedUser]= useState(signedInUser);
 
+  var initialErrors = {
+    name: "",
+    email: "",
+    password: ""
+  };
+  const [errors, setErrors] = useState(initialErrors);
+  const [formValid, setFormValid] = useState(false);
+
   useEffect(() => {
-    getAllInvoices(signedUser.id);
+    checkFormValidation();
+  })
+
+  useEffect(() => {
+    if(storedUser.email !== ""){
+      getAllInvoices(signedUser.id);
+    }
   }, [storedUser]);
 
   useEffect(() => {
@@ -59,6 +73,27 @@ const Account = () => {
     var name = e.target.name;
     var value = e.target.value;
     setUser({...user, [name]: value});
+    checkInputValidation(e);
+  }
+
+  const checkInputValidation = (e) => {
+    var key = e.target.name;
+    var value = e.target.value;
+    if(value === ""){
+      setErrors({ ...errors, [key]: `This field is required`});
+    }
+    else {
+      setErrors({ ...errors, [key]: ""})
+      if(key === "password"){
+        setErrors({ ...errors, password: value.length >= 8 ? "" : "Must have atleast 8 characters"});
+      }
+    }
+  }
+
+  const checkFormValidation = () => {
+    var valid = Object.values(errors).every(x => x === "");
+    setFormValid(valid);
+    return valid;
   }
 
   const handleDelete = (userId) => {
@@ -89,20 +124,22 @@ const Account = () => {
         <form className="form">
               <div class="container">
 
-              <h1>Edit User</h1>
+              <h1>Edit Your Account</h1>
 
                 <label for="name"><b>Name</b></label>
-                <input type="text" placeholder="Name" name="name" id="name" value={user.name} required onChange={(e)=>handleChange(e)}/>
+                <span className="error">{errors.name}</span>
+                <input type="text" className={errors.name !== "" ? "error-border" : ""} placeholder="Name" name="name" id="name" value={user.name} required onChange={(e)=>handleChange(e)}/>
 
                 <label for="author"><b>Email</b></label>
-                <input type="text" placeholder="Email" name="email" id="email" value={user.email} required onChange={(e)=>handleChange(e)}/>
+                <input type="text" placeholder="Email" name="email" id="email" value={user.email} required readOnly/>
                 
                 <label for="price"><b>Password</b></label>
-                <input type="text" placeholder="Password" name="password" id="password" value={user.password} required onChange={(e)=>handleChange(e)}/>
+                <span className="error">{errors.password}</span>
+                <input type="text" className={errors.password !== "" ? "error-border" : ""} placeholder="Password" name="password" id="password" value={user.password} required onChange={(e)=>handleChange(e)}/>
                 <br></br>
 
                 <span>
-                <button type="submit" className="edit-btn btn" onClick={(e) => handleEdit(e)}>Save</button>
+                <button disabled={!formValid} type="submit" className="edit-btn btn" onClick={(e) => handleEdit(e)}>Save</button>
                 </span>
                 <span>
                 <button type="submit" className="delete-btn btn" onClick={() => handleDelete(user.id)}>Delete Account</button>

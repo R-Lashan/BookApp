@@ -81,7 +81,9 @@ const Register = () => {
   }
 
   const checkFormValidation = () => {
-    var valid = Object.values(errors).every(x => x === "");
+    var valid = 
+      Object.values(errors).every(x => x === "") &&
+      Object.values(user).every(x => x !== "");
     setFormValid(valid);
     return valid;
   }

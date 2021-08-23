@@ -17,6 +17,25 @@ class API {
         return result;
     }
 
+    async getUserForRegister(email){
+        var status = 0;
+        var result =
+            fetch(`${baseUrl}users/email/${email}`)
+            .then((response) => {
+                status = response.status;
+                response.json()
+            })
+            .then((a) => {
+                console.log(a)
+                var data = {
+                    status: status,
+                    user: {...a}
+                }
+                return data;
+            });
+        return result;
+    }
+
     async getUser(email){
         var result =
             fetch(`${baseUrl}users/email/${email}`)

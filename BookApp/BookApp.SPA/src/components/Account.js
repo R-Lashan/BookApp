@@ -34,7 +34,6 @@ const Account = () => {
 
   const getAllInvoices = (userId) => {
     new API().getInvoicesByUserId(userId).then(data => {
-      console.log(data)
       setInvoices([...data]);
     });
   }

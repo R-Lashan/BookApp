@@ -25,7 +25,8 @@ namespace BookApp.API.Services
         }
         public User GetUserByEmail(string email)
         {
-            return context.Users.FirstOrDefault(x => x.Email == email);
+            var user = context.Users.FirstOrDefault(x => x.Email == email);
+            return user;
         }
 
         public int AddUser(User user)

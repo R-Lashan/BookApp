@@ -129,7 +129,7 @@ const Login = () => {
           <span className="error">{errors.password}</span>
           <input type="password" className={errors.password !== "" ? "error-border" : ""} placeholder="Enter Password" name="password" id="psw" onChange={(e)=>handleChange(e)} required />
 
-          <p className="note">To login as admin: <br /> Email - <strong>admin@gmail.com</strong>,  Password - <strong>admin123</strong></p>
+          <p className="note">To login as admin: (for testing purpose)<br /> Email - <strong>admin@gmail.com</strong>,  Password - <strong>admin123</strong></p>
           
           <button disabled={!formValid} type="submit" className="loginbtn" onClick={(e) => handleSubmit(e)}>Login</button>
           

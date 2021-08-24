@@ -1,19 +1,34 @@
+.home-page{
+    background-image: url('../../assets/book-bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    width: 100%;
+    padding-top: 100px;
+    color: #fff;
+}
 
 .home-page .text-1{
     font-size: 40px;
-    margin: 100px 0px 0px;
-    color: #222;
+    margin: 0px 0px 0px;
 }
 
 .home-page .text-2{
-    font-size: 60px;
-    margin: 20px 0px 40px;
-    color: #222;
+    font-size: 80px;
+    margin: 20px 0px 0px;
+    text-shadow: 6px 8px #2a6079;
+}
+
+.home-page .text-3{
+    font-size: 20px;
+    padding: 0px 300px;
+    text-shadow: 1px 1px #9b9b9b;
 }
 
 .home-page .banner{
     text-align: center;
-    margin-top: 100px;
+    margin-top: 0px;
 }
 
 .home-page .btn{
@@ -44,4 +59,11 @@
 }
 .home-page .signup-btn:hover {
     background:rgb(38, 110, 70);
+}
+
+.home-page .caption{
+    float: right;
+    padding: 10px;
+    font-size: 14px;
+    margin-top: 60px;
 }
